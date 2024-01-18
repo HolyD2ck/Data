@@ -1,0 +1,69 @@
+﻿@model Data.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="t">Внести</h1>
+
+<h4>Студент:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Фамилия" class="control-label"></label>
+                <input asp-for="Фамилия" class="form-control" />
+                <span asp-validation-for="Фамилия" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Имя" class="control-label"></label>
+                <input asp-for="Имя" class="form-control" />
+                <span asp-validation-for="Имя" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Отчество" class="control-label"></label>
+                <input asp-for="Отчество" class="form-control" />
+                <span asp-validation-for="Отчество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Рост" class="control-label"></label>
+                <input asp-for="Рост" class="form-control" />
+                <span asp-validation-for="Рост" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="День_Рождения" class="control-label"></label>
+                <input asp-for="День_Рождения" class="form-control" />
+                <span asp-validation-for="День_Рождения" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Группа" class="control-label"></label>
+                <input asp-for="Группа" class="form-control" />
+                <span asp-validation-for="Группа" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Специальность" class="control-label"></label>
+                <input asp-for="Специальность" class="form-control" />
+                <span asp-validation-for="Специальность" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Стипендия" class="control-label"></label>
+                <input asp-for="Стипендия" class="form-control" />
+                <span asp-validation-for="Стипендия" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Внести" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div>
+    <a asp-action="Index">На страницу просмотра</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

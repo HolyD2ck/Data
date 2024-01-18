@@ -1,0 +1,67 @@
+﻿@model Data.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="t">Детали</h1>
+
+<div>
+    <h4>Студент:</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Фамилия)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Фамилия)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Имя)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Имя)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Отчество)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Отчество)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Рост)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Рост)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.День_Рождения)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.День_Рождения)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Группа)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Группа)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Специальность)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Специальность)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Стипендия)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Стипендия)
+        </dd>
+    </dl>
+</div>
+<br>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Изменить</a> |
+    <a asp-action="Index">На страницу просмотра</a>
+</div>
