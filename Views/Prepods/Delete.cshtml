@@ -1,4 +1,4 @@
-﻿@model Data.Models.Student
+﻿@model Data.Models.Prepod
 
 @{
     ViewData["Title"] = "Delete";
@@ -6,9 +6,9 @@
 
 <h1 class="t">Удалить</h1>
 
-<h3>Вы уверены что хотите удалить этого студента?</h3>
+<h3>Вы уверены что хотите удалить этого преподавателя?</h3>
 <div>
-    <h4>Студент:</h4>
+    <h4>Преподаватель:</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -30,10 +30,16 @@
             @Html.DisplayFor(model => model.Отчество)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Рост)
+            @Html.DisplayNameFor(model => model.Куратор_Группы)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Рост)
+            @Html.DisplayFor(model => model.Куратор_Группы)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Профессия)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Профессия)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.День_Рождения)
@@ -42,28 +48,22 @@
             @Html.DisplayFor(model => model.День_Рождения)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Группа)
+            @Html.DisplayNameFor(model => model.Номер_Кабинета)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Группа)
+            @Html.DisplayFor(model => model.Номер_Кабинета)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Специальность)
+            @Html.DisplayNameFor(model => model.Зарплата)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Специальность)
+            @Html.DisplayFor(model => model.Зарплата)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Стипендия)
+            @Html.DisplayNameFor(model => model.Стаж)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Стипендия)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Возраст)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Возраст)
+            @Html.DisplayFor(model => model.Стаж)
         </dd>
     </dl>
     <br>

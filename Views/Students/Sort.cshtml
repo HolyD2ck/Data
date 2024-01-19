@@ -1,17 +1,15 @@
-﻿@model IEnumerable<Data.Models.Student>
+﻿@model IEnumerable<Data.Models.View>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1 class="t">Все студенты</h1>
-
-<p>
-    <a asp-action="Create">Внести Студента</a>
-</p>
+<h1 class="t">Младше</h1>
+<br>
 <table class="table">
     <thead>
         <tr>
+           
             <th>
                 @Html.DisplayNameFor(model => model.id)
             </th>
@@ -39,7 +37,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Стипендия)
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.Возраст)
             </th>
@@ -48,6 +45,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+            
         <tr>
            <td>
                 @Html.DisplayFor(modelItem => item.id)
@@ -76,13 +74,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Стипендия)
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Возраст)
-                </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+                 @Html.DisplayFor(modelItem => item.Возраст)
             </td>
         </tr>
 }

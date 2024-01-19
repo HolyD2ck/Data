@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Data.Models.Student>
+﻿@model IEnumerable<Data.Models.Prepod>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1 class="t">Все студенты</h1>
+<h1 class="t">Все преподаватели</h1>
 
 <p>
-    <a asp-action="Create">Внести Студента</a>
+    <a asp-action="Create">Внести Преподавателя</a>
 </p>
 <table class="table">
     <thead>
@@ -25,23 +25,22 @@
                 @Html.DisplayNameFor(model => model.Отчество)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Рост)
+                @Html.DisplayNameFor(model => model.Куратор_Группы)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Профессия)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.День_Рождения)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Группа)
+                @Html.DisplayNameFor(model => model.Номер_Кабинета)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Специальность)
+                @Html.DisplayNameFor(model => model.Зарплата)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Стипендия)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Возраст)
+                @Html.DisplayNameFor(model => model.Стаж)
             </th>
             <th></th>
         </tr>
@@ -49,8 +48,8 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-           <td>
-                @Html.DisplayFor(modelItem => item.id)
+            <td>
+                    @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Фамилия)
@@ -62,28 +61,28 @@
                 @Html.DisplayFor(modelItem => item.Отчество)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Рост)
+                @Html.DisplayFor(modelItem => item.Куратор_Группы)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Профессия)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.День_Рождения)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Группа)
+                @Html.DisplayFor(modelItem => item.Номер_Кабинета)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Специальность)
+                @Html.DisplayFor(modelItem => item.Зарплата)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Стипендия)
+                @Html.DisplayFor(modelItem => item.Стаж)
             </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Возраст)
+                    <a asp-action="Edit" asp-route-id="@item.id">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
                 </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
-            </td>
         </tr>
 }
     </tbody>

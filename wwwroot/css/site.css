@@ -72,14 +72,22 @@ h2, p {
     margin: 0;
 }
 
-table td, table th {
+ td, th {
     padding: 10px;
     border: 1px solid #333;
     margin: 10px 0;
     text-align: center;
+    color:dimgray;
+    border-color:dimgrey;    
 }
-
+th {
+    border: 1px solid #333;
+    color: darkred;
+    border-color: dimgrey;
+}
 table {
     margin-left: auto;
     margin-right: auto;
+    background-color:lemonchiffon;
+
 }
