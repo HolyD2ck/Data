@@ -9,97 +9,88 @@ using Data.Models;
 
 namespace Data.Controllers
 {
-
-    public class StudentsController : Controller
+    public class PrepodsController : Controller
     {
-
         private readonly DataContext _context;
 
-        public StudentsController(DataContext context)
+        public PrepodsController(DataContext context)
         {
             _context = context;
-            _context.EnsureData();
+            _context.EnsureData2();
         }
 
-        // GET: Students
+        // GET: Prepods
         public async Task<IActionResult> Index()
         {
-              return _context.Student != null ? 
-                          View(await _context.Student.ToListAsync()) :
-                          Problem("Entity set 'DataContext.Student'  is null.");
-        }
-        public async Task<IActionResult> Sort()
-        {
-            return _context.View != null ?
-                        View(await _context.View.ToListAsync()) :
-                        Problem("Entity set 'DataContext.Student'  is null.");
+              return _context.Prepod != null ? 
+                          View(await _context.Prepod.ToListAsync()) :
+                          Problem("Entity set 'DataContext.Prepod'  is null.");
         }
 
-
-        // GET: Students/Details/5
+        // GET: Prepods/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Student == null)
+            if (id == null || _context.Prepod == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Student
+            var prepod = await _context.Prepod
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (student == null)
+            if (prepod == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(prepod);
         }
 
-        // GET: Students/Create
+        // GET: Prepods/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Students/Create
+        // POST: Prepods/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Фамилия,Имя,Отчество,Рост,День_Рождения,Группа,Специальность,Стипендия")] Student student)
+        public async Task<IActionResult> Create([Bind("id,Фамилия,Имя,Отчество,Куратор_Группы,Профессия,День_Рождения,Номер_Кабинета,Зарплата,Стаж")] Prepod prepod)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(student);
+                _context.Add(prepod);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(prepod);
         }
 
-        // GET: Students/Edit/5
+        // GET: Prepods/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Student == null)
+            if (id == null || _context.Prepod == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Student.FindAsync(id);
-            if (student == null)
+            var prepod = await _context.Prepod.FindAsync(id);
+            if (prepod == null)
             {
                 return NotFound();
             }
-            return View(student);
+            return View(prepod);
         }
 
-        // POST: Students/Edit/5
+        // POST: Prepods/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Фамилия,Имя,Отчество,Рост,День_Рождения,Группа,Специальность,Стипендия")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Фамилия,Имя,Отчество,Куратор_Группы,Профессия,День_Рождения,Номер_Кабинета,Зарплата,Стаж")] Prepod prepod)
         {
-            if (id != student.id)
+            if (id != prepod.id)
             {
                 return NotFound();
             }
@@ -108,12 +99,12 @@ namespace Data.Controllers
             {
                 try
                 {
-                    _context.Update(student);
+                    _context.Update(prepod);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.id))
+                    if (!PrepodExists(prepod.id))
                     {
                         return NotFound();
                     }
@@ -124,50 +115,49 @@ namespace Data.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(prepod);
         }
 
-        // GET: Students/Delete/5
+        // GET: Prepods/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Student == null)
+            if (id == null || _context.Prepod == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Student
+            var prepod = await _context.Prepod
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (student == null)
+            if (prepod == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(prepod);
         }
 
-        // POST: Students/Delete/5
+        // POST: Prepods/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Student == null)
+            if (_context.Prepod == null)
             {
-                return Problem("Entity set 'DataContext.Student'  is null.");
+                return Problem("Entity set 'DataContext.Prepod'  is null.");
             }
-            var student = await _context.Student.FindAsync(id);
-            if (student != null)
+            var prepod = await _context.Prepod.FindAsync(id);
+            if (prepod != null)
             {
-                _context.Student.Remove(student);
+                _context.Prepod.Remove(prepod);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StudentExists(int id)
+        private bool PrepodExists(int id)
         {
-          return (_context.Student?.Any(e => e.id == id)).GetValueOrDefault();
+          return (_context.Prepod?.Any(e => e.id == id)).GetValueOrDefault();
         }
-
     }
 }
